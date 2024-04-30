@@ -1,0 +1,51 @@
+.banner{
+    background: grey;
+    width: 100%;
+    text-align: center;
+}
+.box{
+    flex: 0 0 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px red;
+}
+
+/*  form bar ---------------------------------------*/
+.form1{
+    width: 100px;
+    align-items: center;
+}
+/*  navigation bar ---------------------------------------*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+
+li {
+    float: left;
+}
+
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+    
+}
+  
+li a:hover {
+    background-color: #111;
+}
+.center-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' type='text/css' href='../static/desighn.css'>
+</head>
+<body>
+    <header>
+        <div>my website</div>
+        <form method="GET" action="/">
+            <select name= "colour">
+                {% for colour in colours %}
+                    {%if colour == selected_colour%}
+                        <option value= "{{colour}}"selected>{{colour}}</option>
+                    {% else %}
+                        <option value="{{colour}}">{{colour}}</option>
+                    {% endif %}
+                {%endfor%}
+            </select>
+            <button type="submit">Apply</button>
+        </form>
+        <nav>
+            <ul>
+                <li><a href ="{{url_for('galleryPage')}}">Home</a><li>                
+            </ul>
+        </nav>
+        <div class="banner">
+            <h1>Web development technologies 2</h1>
+            <h1>F.C Tops</h1>    
+
+            <div class="form1">
+                <form method="GET" action="test1">
+                    colselect
+                    <select name= "colour">
+                    {% for colour in colours %}
+                    <option value= "{{colour}}"SELECTED>{{colour}}</option>
+                    {% endfor %}
+                    </select>
+                <input type="submit" value="Submit">
+                </form>  
+            </div>            
+            <p>test</p> 
+
+        </div>
+
+    </header>
+  
+    
+        
+
+    <div class="box">
+            {% for tech in technologies %}
+                <li>{{ tech.name }} - {{ tech.price }} - <a href = "tech/{{ tech.shirtindex }}"><img src = {{tech.image}} alt= "{{tech.name}} image" width="150" height="200" ></a></li>
+            {% endfor %}
+    </div>
+</body>
+</html>
+

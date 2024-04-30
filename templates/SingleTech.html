@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>{{ technology.name }}</h1>
+    <p>price: {{ technology.price }}</p>
+    <p>{{ technology.description }}</p>
+    <p><img src = {{technology.image}} alt= "{{technology.name}} image"></p>
+    <div class="cart1">
+        <p><button>Add to Cart</button></p>
+    </div>
+    <form method="GET" action="test1">
+        colourmenu
+        <select name= "colour">
+        {% for colour in colours %}
+            hi {{colour}}
+        {% endfor %}
+        </select>
+    <input type="submit" value="Submit">
+    </form>  
+    
+
+
+
+    <a href="/"> Back page</a>
+    <a href="/home/"> back home 2</a>
+</body>
+</html>
