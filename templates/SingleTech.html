@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html>
-
+<head>
+    <link rel='stylesheet' type='text/css' href='../static/desighn.css'>
+</head>
 <body>
+    <header>
+        <ul>
+            <li><a href ="{{url_for('galleryPage')}}">Home</a><li>                
+        </ul>
+    </nav>
+    <div class="banner">
+        <ul>
+            <li><a href="{{ url_for('basket_get') }}">Shopping basket</a></li>
+        </ul>
+        <h1>F.C Tops</h1> 
     <h1>{{ technology.name }}</h1>
-    <p>price: {{ technology.price }}</p>
+    <p>Price: {{ technology.price }}</p>
     <p>{{ technology.description }}</p>
-    <p><img src = {{technology.image}} alt= "{{technology.name}} image"></p>
+    <p><img src="{{ technology.image }}" alt="{{ technology.name }} image" width="250" height="250"></p>
     <div class="cart1">
-        <p><button>Add to Cart</button></p>
+        <form action = "/tech/{{ technology.shirtindex}}" method = "POST">
+            <input type="hidden" name="name" value="{{ technology.name }}">
+            <input type="hidden" name="price" value="{{ technology.price }}">
+            <input type="hidden" name="description" value="{{ technology.description }}">
+            <input type="hidden" name="image" value="{{ technology.image }}">
+            <label for="quantity">Quantity:</label>
+            <select id="quantitySelect" name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br><br>
+            <input type="submit" value="Add to Cart">
+        </form>
     </div>
-    <form method="GET" action="test1">
-        colourmenu
-        <select name= "colour">
-        {% for colour in colours %}
-            hi {{colour}}
-        {% endfor %}
-        </select>
-    <input type="submit" value="Submit">
-    </form>  
-    
-
-
-
-    <a href="/"> Back page</a>
-    <a href="/home/"> back home 2</a>
 </body>
 </html>

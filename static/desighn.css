@@ -3,6 +3,7 @@
     width: 100%;
     text-align: center;
 }
+
 .box{
     flex: 0 0 40%;
     text-align: center;
@@ -28,7 +29,7 @@ ul {
 
 
 li {
-    float: left;
+    text-align: center;
 }
 
 
@@ -48,4 +49,54 @@ li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ------------------------basket-------------------------*/ 
+
+.bast2-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.column {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    width: 70%; /* Adjust width as needed */
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for header */
+}
+
+/* ------------------------image layout-------------------------*/ 
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px; 
+}
+
+.box {
+    width: calc(33.33% - 10px);
+    border: 1px solid red;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.box img {
+    display: block;
+    margin: 0 auto;
+}
+
+.box li {
+    padding: 10px;
+    list-style: none;
 }

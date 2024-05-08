@@ -5,53 +5,56 @@
 </head>
 <body>
     <header>
-        <div>my website</div>
-        <form method="GET" action="/">
-            <select name= "colour">
-                {% for colour in colours %}
-                    {%if colour == selected_colour%}
-                        <option value= "{{colour}}"selected>{{colour}}</option>
-                    {% else %}
-                        <option value="{{colour}}">{{colour}}</option>
-                    {% endif %}
-                {%endfor%}
-            </select>
-            <button type="submit">Apply</button>
-        </form>
-        <nav>
             <ul>
                 <li><a href ="{{url_for('galleryPage')}}">Home</a><li>                
             </ul>
         </nav>
         <div class="banner">
-            <h1>Web development technologies 2</h1>
-            <h1>F.C Tops</h1>    
-
-            <div class="form1">
-                <form method="GET" action="test1">
-                    colselect
-                    <select name= "colour">
+            <ul>
+                <li><a href="{{ url_for('basket_get') }}">Shopping basket</a></li>
+            </ul>
+            <h1>F.C Tops</h1> 
+            <div>my website 2</div>
+            <form method="GET" action="/">
+                <select name= "colour">
                     {% for colour in colours %}
-                    <option value= "{{colour}}"SELECTED>{{colour}}</option>
-                    {% endfor %}
-                    </select>
-                <input type="submit" value="Submit">
-                </form>  
+                        {%if colour == selected_colour%}
+                            <option value= "{{colour}}"selected>{{colour}}</option>
+                        {% else %}
+                            <option value="{{colour}}">{{colour}}</option>
+                        {% endif %}
+                    {%endfor%}
+                </select>
+                <button type="submit">Apply</button>
+            </form>  
             </div>            
-            <p>test</p> 
-
         </div>
-
     </header>
   
-    
-        
-
-    <div class="box">
-            {% for tech in technologies %}
-                <li>{{ tech.name }} - {{ tech.price }} - <a href = "tech/{{ tech.shirtindex }}"><img src = {{tech.image}} alt= "{{tech.name}} image" width="150" height="200" ></a></li>
-            {% endfor %}
+    <div class="box-container">
+        {% for tech in technologies %}
+            <div class="box">
+                <li>{{ tech.name }} - {{ tech.price }} - Carbon emission, kg: {{tech.CO2}} <a href="tech/{{ tech.shirtindex }}"><img src="{{ tech.image }}" alt="{{ tech.name }} image" width="150" height="200"></a></li>
+                
+                <form action="/tech/{{ tech.shirtindex }}" method="POST">
+                    <input type="hidden" name="name" value="{{ tech.name }}">
+                    <input type="hidden" name="price" value="{{ tech.price }}">
+                    <input type="hidden" name="description" value="{{ tech.description }}">
+                    <input type="hidden" name="image" value="{{ tech.image }}">
+                    <label for="quantity">Quantity:</label>
+                    <select id="quantitySelect" name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br><br>
+                    <input type="submit" value="Add to Cart">
+                </form>
+            </div>
+        {% endfor %}
     </div>
+    
 </body>
 </html>
 

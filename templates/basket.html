@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href='../static/desighn.css'>
+    </head>
+    <body>
+        <header>
+            <ul>
+                <li><a href ="{{url_for('galleryPage')}}">Home</a><li>                
+            </ul>
+        </nav>
+        <div class="banner">
+            <ul>
+                <li><a href="{{ url_for('galleryPage') }}">Shopping basket</a></li>
+            </ul>
+            <ul>
+                <li><a href="{{ url_for('checkout_get') }}">Checkout</a></li>
+            </ul>
+            <h1>F.C Tops</h1> 
+            
+            <form action="{{ url_for('basket_removeitem') }}" method="POST">
+<body>
+    <div class="row">
+        <div class="column">
+         <h2>Shopping basket</h2>
+         <table>
+            <thead>
+                <tr>
+                    <th>Item No</th>
+                    <th>Shirt Index</th>
+                    <th>Shirt Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in result %}
+                <tr>
+                    <td>{{ item['itemno'] }}</td>
+                    <td>{{ item['shirtindex'] }}</td>
+                    <td>{{ item['shirtprice'] }}</td>
+                    <td>{{ item['quantity'] }}</td>
+                    <td><button type="submit" name="submit_button" value="{{ item['itemno'] }}" >Remove</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+</body>
+</form>  
+</html>
